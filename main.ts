@@ -84,7 +84,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
     music.powerDown.play()
     info.changeLifeBy(-1)
-    gun.destroy(effects.smiles, 500)
+    gun.destroy(effects.hearts, 500)
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(fly, 0, 200)
@@ -241,12 +241,8 @@ fly.setFlag(SpriteFlag.StayInScreen, true)
 music.playMelody("C D G E G C5 C C5 ", 300)
 info.setLife(3)
 forever(function () {
-    for (let index = 0; index < 10; index++) {
-        music.playMelody("B B C5 - C5 - - C5 ", 300)
-        music.playMelody("B B C5 A C5 - - C5 ", 300)
-    }
-    music.playMelody("B B C5 - C5 - - C5 ", 500)
-    music.playMelody("B B C5 A C5 - - C5 ", 500)
+    music.playMelody("B B C5 - C5 - - C5 ", 300)
+    music.playMelody("B B C5 A C5 - - C5 ", 300)
 })
 game.onUpdateInterval(3000, function () {
     music.magicWand.play()
@@ -271,5 +267,5 @@ game.onUpdateInterval(3000, function () {
     gun.setFlag(SpriteFlag.StayInScreen, true)
     gun.x = randint(0, scene.screenWidth())
     gun.y = randint(scene.screenHeight(), 10)
-    gun.follow(fly, 100)
+    gun.follow(fly)
 })
